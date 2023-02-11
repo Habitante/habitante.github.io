@@ -1,38 +1,41 @@
 <html>
   <head>
     <style>
-      .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-        grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
-        grid-gap: 10px;
-        height: 100vh;
-        width: 100%;
+      body {
+        background-color: black;
         margin: 0;
         padding: 0;
       }
-
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(30px, 1fr));
+        grid-gap: 5px;
+        height: 100vh;
+        width: 100%;
+      }
       .box {
-        background-color: rgba(
-          Math.floor(Math.random() * 256),
-          Math.floor(Math.random() * 256),
-          Math.floor(Math.random() * 256),
-          1
-        );
-        color: white;
-        font-size: 24px;
+        font-size: 18px;
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+      .box p {
+        color: white;
+        text-shadow: 1px 1px 2px black;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <script>
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 2000; i++) {
           let box = document.createElement("div");
           box.classList.add("box");
+          box.style.backgroundColor = "rgb(" + 
+            Math.floor(Math.random() * 220) + "," + 
+            Math.floor(Math.random() * 220) + "," + 
+            Math.floor(Math.random() * 220) + ")";
           box.innerHTML = "<p><strong>" + Math.floor(Math.random() * 100) + "</strong></p>";
           document.querySelector(".container").appendChild(box);
         }
